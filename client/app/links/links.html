@@ -1,4 +1,8 @@
 <div id='container'>
   <!-- Your html here -->
-  Serving
+  <ul>
+  	<li ng-repeat="datum in data">
+  		<a href="{{ datum.url }}">{{ datum.title }}</a>
+  	</li>
+  </ul>
 </div>

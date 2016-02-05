@@ -2,11 +2,14 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
 	
-	$scope.data = {};
+	$scope.data = [];
 	$scope.getLinks = function(){
 		Links.index()
 			.then(function(data){
-				console.log(data);
+				data.forEach( datum => $scope.data.push(datum) );
+			})
+			.catch(function(err){
+				console.log(err);
 			})
 	};
 	$scope.getLinks();
