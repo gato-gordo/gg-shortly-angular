@@ -10,9 +10,20 @@ angular.module('shortly.services', [])
       return resp.data;
     });
   };
+
+  var create = function(link){
+    return $http({
+      method: 'POST',
+      url: '/api/links/',
+      data: link
+    }).then(function (resp){
+      return resp.data
+    })
+  }
   
   return {
-    index: index
+    index: index,
+    create: create
   };
 })
 .factory('Auth', function ($http, $location, $window) {

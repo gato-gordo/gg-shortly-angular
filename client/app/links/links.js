@@ -7,6 +7,7 @@ angular.module('shortly.links', [])
 		Links.index()
 			.then(function(data){
 				data.forEach( datum => $scope.data.push(datum) );
+				console.log($scope.data);
 			})
 			.catch(function(err){
 				console.log(err);
