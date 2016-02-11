@@ -1,8 +1,8 @@
 <div id='container'>
-	<input type="text" ng-model="searchText">
+	<input type="text" ng-model="searchText" placeholder="filter">
 	<div class="link" ng-repeat="datum in data | filter:searchText ">
 		<img src="/assets/redirect_icon.png">
 		<a target="_blank" href="{{ datum.url }}">{{datum.title}}</a>
-		<div class="visits">{{datum.visits}}
+		<div class="visits"><span class="count">{{datum.visits}}</span>visits</div>
 	</div>
 </div>
