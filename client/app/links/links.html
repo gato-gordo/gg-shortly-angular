@@ -1,8 +1,7 @@
 <div id='container'>
-  <!-- Your html here -->
 	<div class="link" ng-repeat="datum in data">
 		<img src="/assets/redirect_icon.png">
-		<a href="{{ datum.url }}">{{datum.title}}</a>
+		<a target="_blank" href="{{ datum.url }}">{{datum.title}}</a>
 		<div class="visits">{{datum.visits}}
 	</div>
 </div>
