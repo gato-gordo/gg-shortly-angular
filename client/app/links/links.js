@@ -11,7 +11,8 @@ angular.module('shortly.links', [])
 	$scope.addVisit = function(code){
 		Links.addVisit(code)
 			.then(function (res){
-				$location = res.data;
+				console.log(res);
+				window.location = res.data;
 			})
 			.catch(function (err){
 				console.log(err);
