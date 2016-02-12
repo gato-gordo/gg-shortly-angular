@@ -2,7 +2,9 @@
 	<input type="text" ng-model="searchText" placeholder="filter">
 	<div class="link" ng-repeat="datum in data | filter:searchText ">
 		<img src="/assets/redirect_icon.png">
-		<a target="_blank" href="{{ datum.url }}">{{datum.title}}</a>
+		<div class="title" >{{datum.title}}</div>
+		<div class="original">{{ datum.url }}</div>
+		<a ng-click="addVisit(datum.code)">{{ buildLink(datum.base_url, datum.code) }}</a>
 		<div class="visits"><span class="count">{{datum.visits}}</span>visits</div>
 	</div>
 </div>

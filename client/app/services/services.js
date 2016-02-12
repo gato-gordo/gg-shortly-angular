@@ -8,7 +8,7 @@ angular.module('shortly.services', [])
       url: '/api/links/'
     }).then(function (resp){
       return resp.data;
-    });
+    })
   };
 
   var create = function(link){
@@ -20,10 +20,18 @@ angular.module('shortly.services', [])
       return resp.data
     })
   }
+
+  var addVisit = function(code){
+    return $http({
+      method: 'GET',
+      url: '/api/links/' + code
+    });
+  }
   
   return {
     index: index,
-    create: create
+    create: create,
+    addVisit: addVisit
   };
 })
 .factory('Auth', function ($http, $location, $window) {
