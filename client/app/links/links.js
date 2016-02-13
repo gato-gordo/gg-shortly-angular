@@ -2,6 +2,11 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, $location, Links) {
 	
+	if( !Auth.isAuth() ){
+		$location = $location.path('/signin');
+	}
+
+
 	$scope.data = [];
 
 	$scope.buildLink = function(url, code){
