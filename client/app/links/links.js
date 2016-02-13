@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, $location, Links) {
+.controller('LinksController', function ($scope, $location, Links, Auth) {
 	
 	if( !Auth.isAuth() ){
 		$location = $location.path('/signin');
@@ -16,7 +16,6 @@ angular.module('shortly.links', [])
 	$scope.addVisit = function(code){
 		Links.addVisit(code)
 			.then(function (res){
-				console.log(res);
 				window.location = res.data;
 			})
 			.catch(function (err){
@@ -29,7 +28,6 @@ angular.module('shortly.links', [])
 		Links.index()
 			.then(function(data){
 				data.forEach( datum => $scope.data.push(datum) );
-				console.log($scope.data);
 			})
 			.catch(function(err){
 				console.log(err);
